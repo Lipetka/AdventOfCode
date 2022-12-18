@@ -33,3 +33,33 @@ def pointsForWinning(line):
             return 0
         elif(line[2] == 'Z'):
             return 3
+
+
+def pointsForWinningPart2(line):
+
+    if(line[0] == 'A'):
+
+        if(line[2] == 'X'):
+            return 3
+        elif(line[2] == 'Y'):
+            return 4
+        elif(line[2] == 'Z'):
+            return 8
+
+    elif(line[0] == 'B'):
+
+        if(line[2] == 'X'):
+            return 1
+        elif(line[2] == 'Y'):
+            return 5
+        elif(line[2] == 'Z'):
+            return 9
+
+    elif(line[0] == 'C'):
+
+        if(line[2] == 'X'):
+            return 1
+        elif(line[2] == 'Y'):
+            return 6
+        elif(line[2] == 'Z'):
+            return 7
