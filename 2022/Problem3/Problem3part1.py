@@ -12,8 +12,9 @@ for line in data:
     first_half = line[0:first_half_length]              # get first half of line
     second_half = line[first_half_length:-1]            # get second half of line
 
-    new_word_flag = 0
+    new_word_flag = 0           # flag to go to new word
 
+    # iterate through all letters and check if they are the same
     for i in first_half:
         if new_word_flag:
             break
@@ -21,16 +22,21 @@ for line in data:
             if new_word_flag:
                 break
             if i==j:
+                # if they are the same, append the 'same' char to results list
                 results.append(i)
-                new_word_flag = 1
+                new_word_flag = 1   # go to new word
 
-sum = 0
+
+## calculating sum of points
+
+sum = 0 # sum placeholder
 
 for i in results:
     if i.islower():
-        sum = sum + ord(i) - 96
+        sum = sum + ord(i) - 96     # convert to ascii and substract constant to fit scoreboard
     else:
-        sum = sum + ord(i) - 38
+        sum = sum + ord(i) - 38      # convert to ascii and substract constant to fit scoreboard
+        
 print(results)
 print(sum)
 
