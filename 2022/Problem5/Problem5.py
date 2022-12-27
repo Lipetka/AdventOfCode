@@ -1,40 +1,47 @@
-import math
+import string
 ################ PART 1 ################
 
-global boxes
-
 def main():
-    input_file = '2022\Problem5\input.txt'      # path to input file
-    data = open(input_file,'r')                 # open input file
+    input_file = 'Problem5\input.txt'       # path to input file
+    data = open(input_file,'r')             # open input file
 
+    # initial condition for boxes
     boxes = [
-        'ZN',
-        'MCD',
-        'P'
+        'PFMQWGRT',
+        'HFR',
+        'PZRVGHSD',
+        'QHPBFWG',
+        'PSMJH',
+        'MZTHSRPL',
+        'PTHNML',
+        'FDQR',
+        'DSCNLPH'
     ]
 
     for line in data:
+        # read each line, extract commands
         line_split  = line.split(' ')
         number      = int(line_split[1])
         frm         = int(line_split[3])
         to          = int(line_split[5])
-        print(number)
-        print(frm)
-        print(to)
 
-        
-        new_Boxes = moveBoxes(boxes,number,frm,to)
-        boxes = new_Boxes
-        print(boxes)
+        # get boxes which will be moved
+        movedString = boxes[frm-1][-number:]
+        # reverse order (for part 1 uncomment, for part 2 comment out)
+        #movedString = movedString[::-1]
 
-    print(boxes)
+        # delete moved boxes from last position
+        boxes[frm-1] = boxes[frm-1][:-number]
 
-def moveBoxes(boxes,number,frm,to):
-    movedString = boxes[frm-1][-number:]
-    print('moved string: ' + movedString)
+        # add moved boxes to new column
+        boxes[to-1] = boxes[to-1]+movedString
 
-    newBoxes = boxes[to-1].join(movedString[::-1])
+    
+    finalMessage = ""   # placeholder for final answer
 
+    for i in range(len(boxes)):
+        finalMessage = finalMessage + boxes[i][-1]  # append last numbers
+    
+    print(finalMessage)
 
-    return newBoxes
 main()
