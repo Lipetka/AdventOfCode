@@ -4,7 +4,7 @@ import string
 def main():
     input_file = 'Problem6\input.txt'           # path to input file
     data = open(input_file,'r').read()          # open input file
-    dataLength = 14                             # change to 14 for part 2
+    dataLength = 14                             # change to "14" for part 2 and "4" for part 1
 
     for i in range(len(data)):
         
