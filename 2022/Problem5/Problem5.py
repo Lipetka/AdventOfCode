@@ -1,5 +1,5 @@
 import string
-################ PART 1 ################
+################ PART 1/2 ################
 
 def main():
     input_file = 'Problem5\input.txt'       # path to input file
